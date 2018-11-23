@@ -1,0 +1,254 @@
+// Universal Selector
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+// MEDIA QUERY MANAGER
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == older-phone {
+        @media only screen and (max-width: 20em) { @content }; // 320px
+    }
+
+    @if $breakpoint == smaller-phone {
+        @media only screen and (max-width: 25.875em) { @content }; // 414px
+    }
+
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+
+    @if $breakpoint == tablet-portrait {
+        @media only screen and (max-width: 56.25em) { @content }; // 900px
+    }
+
+    @if $breakpoint == tablet-landscape {
+        @media only screen and (max-width: 75em) { @content }; // 1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content }; // 1800px
+    }
+}
+
+// HTML
+html {
+    // This defines 1rem don't change
+    font-size: 62.5%; // 1rem = 10px;   10px/16px = 62.5%
+
+    @include respond(tablet-landscape) {
+        font-size: 56.25%; // 1 rem = 9px; 9/16
+    }
+
+    @include respond(tablet-portrait) {
+        font-size: 50%; // 1 rem = 8px; 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1 rem = 12px;
+    }
+}
+
+// Body
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    position: relative;
+}
+
+::selection {
+    background-color: #99A1FF;
+}
+
+.primary-heading {
+    font-size: 8rem;
+    margin-bottom: 4rem;
+    text-shadow: 0px 5px 10px rgb(41, 41, 41);
+
+    @include respond(tablet-portrait) {
+        font-size: 7rem;
+    }
+
+    @include respond(phone) {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    @include respond(smaller-phone) {
+        font-size: 4rem;
+    }
+
+    @include respond(older-phone) {
+        font-size: 3rem;
+    }
+}
+
+.secondary-heading {
+    font-size: 5rem;
+    font-weight: 100;
+    margin-bottom: 6rem;
+
+    @include respond(smaller-phone) {
+        font-size: 3rem;
+    }
+
+    @include respond(older-phone) {
+        font-size: 2.5rem;
+    }
+
+    // Left Line
+    &::before {
+        content: "";
+        position: absolute;
+        height: 5px;
+        top: 36%;
+        left: 24rem;
+        width: 2em;
+        border-top: 1px solid #99A1FF;
+
+        @include respond(tablet-portrait) {
+            content: none;
+        }
+    }
+
+    // Right Line
+    &::after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        top: 36%;
+        right: 24rem;
+        width: 2em;
+        border-top: 1px solid #99A1FF;
+
+        @include respond(tablet-portrait) {
+            content: none;
+        }
+    }
+}
+
+// Page Container
+.container {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, .7),
+        rgba(0, 0, 0, .6));
+    height: 100vh;
+    background-size: cover;
+    z-index: 10;
+
+    @include respond(tablet-portrait) {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, .7),
+            rgba(0, 0, 0, .6)),
+        url(../media/kh3-cover.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    // Sound Div & Icon
+    &__sound {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 4rem;
+        padding: 3rem 4rem;
+    }
+
+    &__icon {
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+            color: #99A1FF;
+            transform: scale(1.05);
+        }
+    }
+
+    // Div Containing Video
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        overflow: hidden;
+        
+        @include respond(phone) {
+            display: none;
+        }
+    }
+
+    &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    // Div Containing Text
+    &__text-box {
+        position: absolute;
+        width: 114rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        @include respond(tablet-portrait) {
+            width: 100%;
+        }
+    }
+
+    // Countdown
+    &__countdown {
+        font-size: 8rem;
+        font-weight: 100;
+        color: #fff;
+        text-shadow: 0px 5px 10px rgb(41, 41, 41);
+
+        @include respond(phone) {
+            font-size: 6rem;
+        }
+
+        @include respond(smaller-phone) {
+            font-size: 4rem;
+        }
+
+        &::after {
+            display: block;
+            height: 2px;
+            background-color: #99A1FF;
+            content: " ";
+            width: 35rem;
+            margin: 0 auto;
+            margin-top: 1rem;
+            margin-bottom: 8rem;
+
+            @include respond(smaller-phone) {
+                width: 18rem;
+            }
+        }
+    }
+
+    // Pre Order Button
+    &__button {
+        cursor: pointer;
+        outline: none;
+        font-size: 3rem;
+        padding: .8rem;
+        background-color: transparent;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid transparent;
+    
+        transition: all .5s;
+
+        &:hover {
+            color: rgb(217, 220, 255);
+            border-bottom: 2px solid #99A1FF;
+        }
+    }
+}

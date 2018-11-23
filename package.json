@@ -1,0 +1,14 @@
+{
+  "name": "kh3-countdown",
+  "version": "1.0.0",
+  "description": "Basic countdown for kingdom hearts 3 release date",
+  "main": "app.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Jose Torralba",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.10.0"
+  }
+}

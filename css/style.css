@@ -1,0 +1,160 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  position: relative; }
+
+::selection {
+  background-color: #99A1FF; }
+
+.primary-heading {
+  font-size: 8rem;
+  margin-bottom: 4rem;
+  text-shadow: 0px 5px 10px #292929; }
+  @media only screen and (max-width: 56.25em) {
+    .primary-heading {
+      font-size: 7rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .primary-heading {
+      font-size: 5rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 25.875em) {
+    .primary-heading {
+      font-size: 4rem; } }
+  @media only screen and (max-width: 20em) {
+    .primary-heading {
+      font-size: 3rem; } }
+
+.secondary-heading {
+  font-size: 5rem;
+  font-weight: 100;
+  margin-bottom: 6rem; }
+  @media only screen and (max-width: 25.875em) {
+    .secondary-heading {
+      font-size: 3rem; } }
+  @media only screen and (max-width: 20em) {
+    .secondary-heading {
+      font-size: 2.5rem; } }
+  .secondary-heading::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    top: 36%;
+    left: 24rem;
+    width: 2em;
+    border-top: 1px solid #99A1FF; }
+    @media only screen and (max-width: 56.25em) {
+      .secondary-heading::before {
+        content: none; } }
+  .secondary-heading::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    top: 36%;
+    right: 24rem;
+    width: 2em;
+    border-top: 1px solid #99A1FF; }
+    @media only screen and (max-width: 56.25em) {
+      .secondary-heading::after {
+        content: none; } }
+
+.container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6));
+  height: 100vh;
+  background-size: cover;
+  z-index: 10; }
+  @media only screen and (max-width: 56.25em) {
+    .container {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../media/kh3-cover.jpg);
+      background-size: cover;
+      background-position: center; } }
+  .container__sound {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 4rem;
+    padding: 3rem 4rem; }
+  .container__icon {
+    cursor: pointer;
+    transition: all .3s; }
+    .container__icon:hover {
+      color: #99A1FF;
+      transform: scale(1.05); }
+  .container__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden; }
+    @media only screen and (max-width: 37.5em) {
+      .container__video {
+        display: none; } }
+  .container__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+  .container__text-box {
+    position: absolute;
+    width: 114rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+    @media only screen and (max-width: 56.25em) {
+      .container__text-box {
+        width: 100%; } }
+  .container__countdown {
+    font-size: 8rem;
+    font-weight: 100;
+    color: #fff;
+    text-shadow: 0px 5px 10px #292929; }
+    @media only screen and (max-width: 37.5em) {
+      .container__countdown {
+        font-size: 6rem; } }
+    @media only screen and (max-width: 25.875em) {
+      .container__countdown {
+        font-size: 4rem; } }
+    .container__countdown::after {
+      display: block;
+      height: 2px;
+      background-color: #99A1FF;
+      content: " ";
+      width: 35rem;
+      margin: 0 auto;
+      margin-top: 1rem;
+      margin-bottom: 8rem; }
+      @media only screen and (max-width: 25.875em) {
+        .container__countdown::after {
+          width: 18rem; } }
+  .container__button {
+    cursor: pointer;
+    outline: none;
+    font-size: 3rem;
+    padding: .8rem;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all .5s; }
+    .container__button:hover {
+      color: #d9dcff;
+      border-bottom: 2px solid #99A1FF; }
