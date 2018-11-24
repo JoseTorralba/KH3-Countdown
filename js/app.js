@@ -29,6 +29,10 @@ var countDown = setInterval( () => {
         clearInterval(countDown);
         showCountdown.innerHTML = 'Available Now';
         showCountdown.style.fontStyle = 'italic';
+
+        // Button ID
+        var buttonText = document.getElementById('container__button');
+        buttonText.innerHTML = 'Purchase Now';
     }
 }, 1000);
 
