@@ -155,6 +155,10 @@ body {
         justify-content: flex-end;
         font-size: 4rem;
         padding: 3rem 4rem;
+
+        @include respond(tablet-portrait) {
+            display: none;
+        }
     }
 
     &__icon {

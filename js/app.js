@@ -32,21 +32,24 @@ var countDown = setInterval( () => {
     }
 }, 1000);
 
-// Music
-var backgroundMusic = new Audio('../media/chikai.mp3');
-var btnSong = document.getElementById('btn-song');
+// Background Video
+var backgroundVideo = document.getElementById('container__video');
+var videoButton = document.getElementById('btn-song');
+var isMuted = true;
 
-btnSong.onclick = () => {
-    if (backgroundMusic.paused) {
-        backgroundMusic.play();
-        btnSong.classList.remove('fas', 'fa-volume-off')
-        btnSong.classList.add('fas', 'fa-volume-up')
-        btnSong.style.color = '#99A1FF';
+videoButton.onclick = () => {
+    if (backgroundVideo.muted) {
+
+        backgroundVideo.muted = false;
+        backgroundVideo.volume = 0.2;
+        videoButton.classList.remove('fas', 'fa-volume-off')
+        videoButton.classList.add('fas', 'fa-volume-up')
+        videoButton.style.color = '#99A1FF';
 
     } else {
-        backgroundMusic.pause();
-        btnSong.classList.remove('fas', 'fa-volume-up');
-        btnSong.classList.add('fas', 'fa-volume-off');
-        btnSong.style.color = '#fff';
+        backgroundVideo.muted = true;
+        videoButton.classList.remove('fas', 'fa-volume-up');
+        videoButton.classList.add('fas', 'fa-volume-off');
+        videoButton.style.color = '#fff';
     }
 };
