@@ -1,45 +1,81 @@
 // Release date 
-var releaseDate = new Date("Jan 29, 2019 00:00:00").getTime();
+const releaseDate = new Date("Jan 29, 2019 00:00:00").getTime();
 
 // Updates countdown every 1 second
-var countDown = setInterval( () => {
+const countDown = setInterval( () => {
 
     // Get's Today's Date and time
-    var currentDate = new Date().getTime();
+    const currentDate = new Date().getTime();
 
     // Finds the distance between now and the release date
-    var distance = releaseDate - currentDate;
+    const distance = releaseDate - currentDate;
 
     // Time calculations for days hours minutes and seconds
-    var daysLeft = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hoursLeft = Math.floor((distance % (1000 * 60 * 60 *24 )) / (1000 * 60 *60))
-    var minutesLeft = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var secondsLeft = Math.floor((distance % (1000 * 60)) / 1000);
+    const daysLeft = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hoursLeft = Math.floor((distance % (1000 * 60 * 60 * 24 )) / (1000 * 60 * 60))
+    const minutesLeft = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secondsLeft = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Shows countdown on page
-    var showCountdown = document.getElementById('countdown');
-    showCountdown.innerHTML = 
-        daysLeft + 'd ' + 
-        hoursLeft + 'h ' +
-        minutesLeft + 'm ' +
-        secondsLeft + 's ';
+    // Countdown Container
+    const countdownContainer = document.getElementById('countdown');
+
+    // Shows Days
+    const showDay = document.getElementById('days');
+    showDay.textContent = daysLeft;
+
+    // Shows Hours
+    const showHours = document.getElementById('hours');
+    showHours.textContent = hoursLeft;
+    
+    // Shows Minutes
+    const showMinutes = document.getElementById('minutes');
+    showMinutes.textContent = minutesLeft;
+
+    // Shows Seconds
+    const showSeconds = document.getElementById('seconds');
+    showSeconds.textContent = secondsLeft;
 
     // When countdown reaches release date
     if (distance < 0 ) {
-        clearInterval(countDown);
-        showCountdown.innerHTML = 'Available Now';
-        showCountdown.style.fontStyle = 'italic';
+        clearInterval(countdownContainer);
+
+        // Displays "Available Now"
+        const showAvailability = document.getElementById('available');
+        showAvailability.style.display = 'block';
+
+        // Removes Counter
+        showDay.style.display = 'none';
+        showHours.style.display = 'none';
+        showMinutes.style.display = 'none';
+        showSeconds.style.display = 'none';
+
+        // Removes Secondary Heading
+        const secondaryHeading = document.getElementById('secondary-heading');
+        secondaryHeading.style.display = 'none';
+
+        // Hides Counter Text
+        const counterDays = document.getElementById('counter-days');
+        counterDays.style.display = 'none';
+
+        const counterHours = document.getElementById('counter-hours');
+        counterHours.style.display = 'none';
+
+        const counterMins = document.getElementById('counter-mins');
+        counterMins.style.display = 'none';
+
+        const counterSecs = document.getElementById('counter-secs');
+        counterSecs.style.display = 'none';
 
         // Button ID
-        var buttonText = document.getElementById('container__button');
+        const buttonText = document.getElementById('container__button');
         buttonText.innerHTML = 'Purchase Now';
     }
 }, 1000);
 
 // Background Video
-var backgroundVideo = document.getElementById('container__video');
-var videoButton = document.getElementById('btn-song');
-var isMuted = true;
+const backgroundVideo = document.getElementById('container__video');
+const videoButton = document.getElementById('btn-song');
+const isMuted = true;
 
 videoButton.onclick = () => {
     if (backgroundVideo.muted) {

@@ -1,4 +1,4 @@
-// Universal Selector
+// Global Styles
 *,
 *::after,
 *::before {
@@ -105,7 +105,7 @@ body {
         content: "";
         position: absolute;
         height: 5px;
-        top: 36%;
+        top: 35%;
         left: 24rem;
         width: 2em;
         border-top: 1px solid #99A1FF;
@@ -120,7 +120,7 @@ body {
         content: "";
         position: absolute;
         height: 5px;
-        top: 36%;
+        top: 35%;
         right: 24rem;
         width: 2em;
         border-top: 1px solid #99A1FF;
@@ -144,7 +144,7 @@ body {
         background-image: linear-gradient(
             rgba(0, 0, 0, .7),
             rgba(0, 0, 0, .6)),
-        url(../media/kh3-cover.jpg);
+        url(../media/kh3-mobile.jpg);
         background-size: cover;
         background-position: center;
     }
@@ -196,7 +196,7 @@ body {
     &__text-box {
         position: absolute;
         width: 114rem;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -212,36 +212,56 @@ body {
         font-weight: 100;
         color: #fff;
         text-shadow: 0px 5px 10px rgb(41, 41, 41);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        margin-bottom: 6rem;
+
+        &--1 {
+            display: block;
+        }
+
+        &--2 {
+            display: block;
+            color: #99A1FF;
+            font-size: 3.5rem;
+
+            @include respond(smaller-phone) {
+                font-size: 2rem;
+            }
+        }
+
 
         @include respond(phone) {
             font-size: 6rem;
         }
 
         @include respond(smaller-phone) {
-            font-size: 4rem;
+            font-size: 4.5rem;
         }
+    }
 
-        &::after {
-            display: block;
-            height: 2px;
-            background-color: #99A1FF;
-            content: " ";
-            width: 35rem;
-            margin: 0 auto;
-            margin-top: 1rem;
-            margin-bottom: 8rem;
 
-            @include respond(smaller-phone) {
-                width: 18rem;
-            }
+    &__countdown-box {
+        padding: 0 2.5rem;
+
+        @include respond(tablet-portrait) {
+            padding: 0 1.5rem;
         }
+    }
+
+    // 'Available' Text
+    &__available {
+        display: none;
+        color: #99A1FF;
     }
 
     // Pre Order Button
     &__button {
         cursor: pointer;
         outline: none;
-        font-size: 3rem;
+        font-size: 2.8rem;
         padding: .8rem;
         background-color: transparent;
         color: #fff;

@@ -13,11 +13,12 @@
     <title>Kingdom Hearts III Countdown</title>
 </head>
 <body>
+    <!-- Video Container -->
     <div class="container">
-        <!-- Video Container -->
         <div class="container__video">
-            <video class="container__content" id="container__video" autoplay muted>
+            <video class="container__content" id="container__video" poster="media/kh3-poster.png" autoplay muted>
                 <source src="media/trailer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
         </div>
 
@@ -29,11 +30,33 @@
         <!-- Text Container -->
         <div class="container__text-box">
             <h1 class="primary-heading">Kingdom Hearts III</h1>
-            <h2 class="secondary-heading">Days Until Release</h2>
+            <h2 class="secondary-heading" id="secondary-heading">Days Until Release</h2>
             
             <!-- Countdown -->
-            <p class="container__countdown" id="countdown"></p>
+            <div class="container__countdown" id="countdown">
 
+                <p class="container__countdown-box" id="counter-days">
+                    <span class="container__countdown--1" id="days"></span>
+                    <span class="container__countdown--2" >Days</span>
+                </p>
+
+                <p class="container__countdown-box" id="counter-hours">
+                    <span class="container__countdown--1" id="hours"></span>
+                    <span class="container__countdown--2">Hours</span>
+                </p>
+
+                <p class="container__countdown-box" id="counter-mins">
+                    <span class="container__countdown--1" id="minutes"></span>
+                    <span class="container__countdown--2">Mins</span>
+                </p>
+
+                <p class="container__countdown-box" id="counter-secs">
+                    <span class="container__countdown--1" id="seconds"></span>
+                    <span class="container__countdown--2">Secs</span>
+                </p>
+
+                <p class="container__available" id="available">Available now</p>
+            </div>
             <!-- Pre order Link -->
             <a href="https://www.kingdomhearts.com/3/us/buy/" target="_blank" class="container__button" id="container__button">Pre-Order Now</a>
         </div>
