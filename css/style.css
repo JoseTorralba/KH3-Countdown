@@ -118,7 +118,7 @@ body {
   .container__text-box {
     position: absolute;
     width: 114rem;
-    top: 45%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
